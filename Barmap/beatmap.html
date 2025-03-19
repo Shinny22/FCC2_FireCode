@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDP Bar Chart Visualization</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    /* Title Styling */
+    h1 {
+      color: #2c3e50;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Description Styling */
+    #description {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Tooltip Styling */
+    #tooltip {
+      position: absolute;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 8px;
+      pointer-events: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* SVG Styling */
+    svg {
+      width: 90%; /* Adjusted width */
+      max-width: 1000px;
+      height: 600px; /* Increased height for better visibility */
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Bar Styling */
+    .bar {
+      fill: steelblue;
+      transition: fill 0.3s ease;
+    }
+
+    .bar:hover {
+      fill: #e67e22;  /* Warm orange for hover */
+      cursor: pointer;
+    }
+
+    /* Axis Styling */
+    .domain {
+      stroke: #bdc3c7;
+    }
+
+    .tick line {
+      stroke: #bdc3c7;
+      stroke-width: 1;
+    }
+
+    .tick text {
+      font-size: 1rem;
+      fill: #7f8c8d;
+    }
+
+    /* Button Styling */
+    .back-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      svg {
+        width: 95%;
+        height: 400px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      #description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">GDP Bar Chart</h1>
+  <div id="description">
+    This bar chart shows the GDP of various countries over time.
+  </div>
+  <svg id="chart"></svg>
+
+  <div id="tooltip"></div>
+
+  <!-- Back Button -->
+  <button class="back-button" onclick="window.location.href='../Home.html'">Back to Main Menu</button>
+
+  <script src="barmap.js"></script>
+</body>
+</html>

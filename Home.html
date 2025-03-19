@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets de Visualisation de Données avec D3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: #777;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .card-button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .card-button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+      }
+
+      .card-description {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Projets de Visualisation de Données avec D3</h1>
+
+  <div class="container">
+    <!-- Barmap -->
+    <div class="card" onclick="window.location.href='file:./Barmap/beatmap.html'">
+      <img src="https://images.pexels.com/photos/5716025/pexels-photo-5716025.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Barmap">
+      <div class="card-content">
+        <h3 class="card-title">Barmap</h3>
+        <p class="card-description">Visualisation de données sous forme de barres.</p>
+        <button class="card-button">Voir le Projet</button>
+      </div>
+    </div>
+
+    <!-- Choropleth -->
+    <div class="card" onclick="window.location.href='file:./Choropleth/choropleth.html'">
+      <img src="https://images.pexels.com/photos/7567222/pexels-photo-7567222.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Choropleth">
+      <div class="card-content">
+        <h3 class="card-title">Choropleth</h3>
+        <p class="card-description">Carte choroplèthe interactive pour la visualisation des données géographiques.</p>
+        <button class="card-button">Voir le Projet</button>
+      </div>
+    </div>
+
+    <!-- Heatmap -->
+    <div class="card" onclick="window.location.href='file:./Heatmap/heatmap.html'">
+      <img src="https://images.pexels.com/photos/7414218/pexels-photo-7414218.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Heatmap">
+      <div class="card-content">
+        <h3 class="card-title">Heatmap</h3>
+        <p class="card-description">Visualisez des données de température avec une carte thermique.</p>
+        <button class="card-button">Voir le Projet</button>
+      </div>
+    </div>
+
+    <!-- Scatterplot -->
+    <div class="card" onclick="window.location.href='file:./Scatterplot/scatterplot.html'">
+      <img src="https://images.pexels.com/photos/7567236/pexels-photo-7567236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Scatterplot">
+      <div class="card-content">
+        <h3 class="card-title">Scatterplot</h3>
+        <p class="card-description">Un graphique de dispersion interactif pour afficher les relations entre des variables.</p>
+        <button class="card-button">Voir le Projet</button>
+      </div>
+    </div>
+
+    <!-- Treemap -->
+    <div class="card" onclick="window.location.href='file:./Treemap/treemap.html'">
+      <img src="https://images.pexels.com/photos/5380582/pexels-photo-5380582.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Treemap">
+      <div class="card-content">
+        <h3 class="card-title">Treemap</h3>
+        <p class="card-description">Une visualisation des données hiérarchiques sous forme de treemap.</p>
+        <button class="card-button">Voir le Projet</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
