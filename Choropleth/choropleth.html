@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US Education Choropleth Map</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,6 +21,7 @@
             background-color: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         #tooltip {
@@ -29,6 +31,7 @@
             padding: 10px;
             border-radius: 5px;
             visibility: hidden;
+            pointer-events: none;
         }
 
         .county {
@@ -45,11 +48,32 @@
             width: 30px;
             height: 20px;
         }
+
+        /* Style du bouton de retour */
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
 
     <div id="chart-container">
+        <!-- Bouton de retour au menu principal -->
+        <a href="../Home.html" class="back-button">⬅ Retour au Menu Principal</a>
+
         <h1 id="title">United States Education Levels</h1>
         <p id="description">Percentage of adults 25 and older with a bachelor's degree or higher (2010-2014)</p>
         <svg id="choropleth"></svg>

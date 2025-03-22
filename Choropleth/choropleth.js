@@ -1,6 +1,4 @@
-const width = 1000;
-const height = 600;
-const legendWidth = 300;
+const width = 1000, height = 600, legendWidth = 300;
 
 const svg = d3.select("#choropleth")
     .attr("width", width)
@@ -36,12 +34,12 @@ Promise.all([d3.json(countyDataUrl), d3.json(educationDataUrl)])
                 return education ? colorScale(education.bachelorsOrHigher) : "#ccc";
             })
             .attr("data-fips", d => d.id)
-            .attr("data-education", d => educationMap.get(d.id)?.bachelorsOrHigher || 0)
+            .attr("data-education", d => educationMap.get(d.id)?.bachelorsOrHigher || "N/A")
             .on("mouseover", (event, d) => {
                 const education = educationMap.get(d.id);
                 tooltip.style("visibility", "visible")
-                    .html(`${education.area_name}, ${education.state}: ${education.bachelorsOrHigher}%`)
-                    .attr("data-education", education.bachelorsOrHigher)
+                    .html(education ? `${education.area_name}, ${education.state}: ${education.bachelorsOrHigher}%` : "Data not available")
+                    .attr("data-education", education ? education.bachelorsOrHigher : "N/A")
                     .style("left", event.pageX + 10 + "px")
                     .style("top", event.pageY - 30 + "px");
             })
